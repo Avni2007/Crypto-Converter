@@ -7,16 +7,16 @@ const logoutBtn = document.getElementById("logoutBtn");
 const result = document.getElementById("result");
 const favorites = document.getElementById("favorites");
 
-convertBtn.addEventListener("click", getPrice);
+convertBtn.addEventListener("click", convertCurrency);
 saveBtn.addEventListener("click", saveFavorite);
 logoutBtn.addEventListener("click", logout);
 
 displayFavorites();
 
-async function getPrice() {
+async function convertCurrency() {
 
     if (amount.value === "" || amount.value <= 0) {
-        result.innerHTML = "<p style='color:red;'>Please enter a valid amount.</p>";
+        result.innerHTML = "<p>Please enter a valid amount.</p>";
         return;
     }
 
@@ -28,11 +28,6 @@ async function getPrice() {
     try {
 
         const response = await fetch(url);
-
-        if (!response.ok) {
-            throw new Error("API Error");
-        }
-
         const data = await response.json();
 
         const price = data[coin][curr];
@@ -40,29 +35,28 @@ async function getPrice() {
 
         result.innerHTML = `
             <h3>Conversion Result</h3>
-            <p><strong>Crypto:</strong> ${coin.toUpperCase()}</p>
-            <p><strong>Currency:</strong> ${curr.toUpperCase()}</p>
-            <p><strong>Amount:</strong> ${amount.value}</p>
-            <p><strong>Current Price:</strong> ${price.toFixed(2)} ${curr.toUpperCase()}</p>
-            <h2>Total : ${total.toFixed(2)} ${curr.toUpperCase()}</h2>
+            <p>Crypto : <b>${coin.toUpperCase()}</b></p>
+            <p>Currency : <b>${curr.toUpperCase()}</b></p>
+            <p>Amount : <b>${amount.value}</b></p>
+            <h2>${total.toFixed(2)} ${curr.toUpperCase()}</h2>
         `;
 
     }
-    catch (error) {
+    catch(error){
 
-        result.innerHTML = "<p style='color:red;'>Unable to fetch data. Please try again.</p>";
+        result.innerHTML = "<p>Unable to fetch data.</p>";
 
     }
 
 }
 
-function saveFavorite() {
+function saveFavorite(){
 
     const pair = crypto.value.toUpperCase() + " → " + currency.value.toUpperCase();
 
     let favoritePairs = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    if (!favoritePairs.includes(pair)) {
+    if(!favoritePairs.includes(pair)){
 
         favoritePairs.push(pair);
 
@@ -74,15 +68,16 @@ function saveFavorite() {
 
 }
 
-function displayFavorites() {
+function displayFavorites(){
 
     favorites.innerHTML = "";
 
     let favoritePairs = JSON.parse(localStorage.getItem("favorites")) || [];
 
-    if (favoritePairs.length === 0) {
+    if(favoritePairs.length === 0){
 
         favorites.innerHTML = "<li>No favorite pairs added.</li>";
+
         return;
 
     }
@@ -100,8 +95,6 @@ function displayFavorites() {
 }
 
 function logout(){
-
-    localStorage.removeItem("favorites");
 
     window.location.href = "index.html";
 
