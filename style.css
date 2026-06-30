@@ -97,6 +97,12 @@ button:hover{
     margin-bottom:25px;
 }
 
+.logo{
+    font-size:60px;
+    text-align:center;
+    margin-bottom:10px;
+}
+
 #logoutBtn{
     width:100px;
     float:right;

@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Converter Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
     <div class="dashboard">
 
         <button id="logoutBtn">Logout</button>
 
+        <div class="logo">
+            🪙
+        </div>
+
         <h1>Crypto Converter</h1>
 
         <label for="amount">Amount</label>
-        <input
-            type="number"
-            id="amount"
-            placeholder="Enter Amount"
-        >
+        <input type="number" id="amount" placeholder="Enter Amount">
 
         <label for="crypto">Select Cryptocurrency</label>
-
         <select id="crypto">
             <option value="bitcoin">Bitcoin</option>
             <option value="ethereum">Ethereum</option>
@@ -32,7 +23,6 @@
         </select>
 
         <label for="currency">Select Currency</label>
-
         <select id="currency">
             <option value="usd">USD</option>
             <option value="inr">INR</option>
@@ -44,21 +34,18 @@
         <button id="convertBtn">Convert</button>
 
         <div id="result">
-            <h1> result</h1>
-            <p>Enter amount and click convert</p>
+            <h3>Conversion Result</h3>
+            <p>Enter amount and click Convert.</p>
         </div>
 
         <button id="saveBtn">Save Favorite Pair</button>
 
         <h2>Favorite Pairs</h2>
 
-        <ul id="favorites">
-
-        </ul>
+        <ul id="favorites"></ul>
 
     </div>
 
     <script src="dashboard.js"></script>
 
 </body>
-</html>
