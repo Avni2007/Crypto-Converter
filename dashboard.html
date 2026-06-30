@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <h1>Crypto Converter</h1>
+
+        <div class="converter">
+
+            <label>Amount</label>
+            <input type="number" id="amount" placeholder="Enter Amount">
+
+            <label>Select Cryptocurrency</label>
+            <select id="crypto">
+                <option value="bitcoin">Bitcoin</option>
+                <option value="ethereum">Ethereum</option>
+                <option value="solana">Solana</option>
+                <option value="dogecoin">Dogecoin</option>
+                <option value="litecoin">Litecoin</option>
+            </select>
+
+            <label>Select Currency</label>
+            <select id="currency">
+                <option value="usd">USD</option>
+                <option value="inr">INR</option>
+                <option value="eur">EUR</option>
+                <option value="gbp">GBP</option>
+                <option value="jpy">JPY</option>
+            </select>
+
+            <button id="convertBtn">Convert</button>
+
+            <div id="result">
+                Converted value will appear here.
+            </div>
+
+            <button id="saveBtn">Save Favorite Pair</button>
+
+            <h2>Favorite Pairs</h2>
+
+            <ul id="favorites">
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script src="dashboard.js"></script>
+
+</body>
+</html>
