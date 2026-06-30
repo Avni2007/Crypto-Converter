@@ -1,41 +1,44 @@
 const loginForm = document.getElementById("loginForm");
 const errorMessage = document.getElementById("errorMessage");
 
-loginForm.addEventListener("submit", async function(event){
+loginForm.addEventListener("submit", checkLogin);
+
+async function checkLogin(event) {
 
     event.preventDefault();
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    try{
+    try {
 
         const response = await fetch("users.json");
         const users = await response.json();
 
-        const validUser = users.find(function(user){
+        let loginSuccess = false;
 
-            return user.username === username &&
-                   user.password === password;
+        users.forEach(function(user) {
+
+            if (user.username === username && user.password === password) {
+                loginSuccess = true;
+            }
 
         });
 
-        if(validUser){
+        if (loginSuccess) {
 
             window.location.href = "dashboard.html";
 
-        }else{
+        } else {
 
             errorMessage.textContent = "Invalid Username or Password";
 
         }
 
-    }
-
-    catch(error){
+    } catch (error) {
 
         errorMessage.textContent = "Unable to load users.";
 
     }
 
-});
+}
