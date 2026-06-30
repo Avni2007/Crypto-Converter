@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Converter</title>
+    <title>Crypto Converter Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,6 +22,7 @@
         >
 
         <label for="crypto">Select Cryptocurrency</label>
+
         <select id="crypto">
             <option value="bitcoin">Bitcoin</option>
             <option value="ethereum">Ethereum</option>
@@ -31,6 +32,7 @@
         </select>
 
         <label for="currency">Select Currency</label>
+
         <select id="currency">
             <option value="usd">USD</option>
             <option value="inr">INR</option>
@@ -42,14 +44,16 @@
         <button id="convertBtn">Convert</button>
 
         <div id="result">
-            Converted value will appear here.
+            <p>Converted value will appear here.</p>
         </div>
 
         <button id="saveBtn">Save Favorite Pair</button>
 
         <h2>Favorite Pairs</h2>
 
-        <ul id="favorites"></ul>
+        <ul id="favorites">
+
+        </ul>
 
     </div>
 
