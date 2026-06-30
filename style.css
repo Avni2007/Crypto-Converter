@@ -2,65 +2,73 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f7fc;
+    background:#eef2f7;
     display:flex;
     justify-content:center;
     align-items:center;
     min-height:100vh;
 }
 
-/* Login Page */
+/* Login */
 
 .login-container{
-    width:350px;
+    width:380px;
     background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
 .login-container h1{
     text-align:center;
-    margin-bottom:10px;
-    color:#333;
+    color:#2563eb;
+    margin-bottom:8px;
 }
 
 .login-container p{
     text-align:center;
-    margin-bottom:20px;
-    color:gray;
+    color:#666;
+    margin-bottom:25px;
 }
 
 label{
     display:block;
     margin-top:15px;
-    margin-bottom:5px;
+    margin-bottom:6px;
     font-weight:bold;
+    color:#444;
 }
 
 input,
 select{
     width:100%;
-    padding:10px;
-    border:1px solid #ccc;
-    border-radius:5px;
+    padding:12px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    outline:none;
     font-size:15px;
+}
+
+input:focus,
+select:focus{
+    border-color:#2563eb;
 }
 
 button{
     width:100%;
-    padding:10px;
+    padding:12px;
     margin-top:20px;
+    border:none;
+    border-radius:8px;
     background:#2563eb;
     color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
     font-size:16px;
+    cursor:pointer;
+    transition:.3s;
 }
 
 button:hover{
@@ -68,24 +76,25 @@ button:hover{
 }
 
 #errorMessage{
-    color:red;
     margin-top:15px;
+    color:red;
     text-align:center;
 }
 
 /* Dashboard */
 
 .dashboard{
-    width:500px;
+    width:550px;
     background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 .dashboard h1{
     text-align:center;
-    margin-bottom:20px;
+    color:#2563eb;
+    margin-bottom:25px;
 }
 
 #logoutBtn{
@@ -93,24 +102,46 @@ button:hover{
     float:right;
     margin-top:0;
     margin-bottom:20px;
-    background:#dc3545;
+    background:#ef4444;
 }
 
 #logoutBtn:hover{
-    background:#b02a37;
+    background:#dc2626;
+}
+
+#convertBtn{
+    background:#16a34a;
+}
+
+#convertBtn:hover{
+    background:#15803d;
+}
+
+#saveBtn{
+    background:#7c3aed;
+}
+
+#saveBtn:hover{
+    background:#6d28d9;
 }
 
 #result{
-    margin-top:20px;
-    padding:15px;
-    background:#f1f5f9;
-    border-radius:5px;
+    margin-top:25px;
+    padding:20px;
+    background:#f8fafc;
+    border-left:5px solid #2563eb;
+    border-radius:10px;
     text-align:center;
+    line-height:1.8;
+}
+
+#result h2{
+    color:#16a34a;
 }
 
 h2{
     margin-top:25px;
-    margin-bottom:10px;
+    margin-bottom:15px;
 }
 
 #favorites{
@@ -118,20 +149,23 @@ h2{
 }
 
 #favorites li{
-    background:#dbeafe;
-    padding:10px;
-    border-radius:5px;
-    margin-bottom:8px;
+    background:#e0f2fe;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+    font-weight:bold;
 }
 
 @media(max-width:600px){
 
+    .dashboard,
     .login-container{
         width:90%;
     }
 
-    .dashboard{
-        width:90%;
+    #logoutBtn{
+        width:100%;
+        float:none;
     }
 
 }
