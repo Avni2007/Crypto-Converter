@@ -43,10 +43,12 @@ async function getPrice() {
             <p><strong>Crypto:</strong> ${coin.toUpperCase()}</p>
             <p><strong>Currency:</strong> ${curr.toUpperCase()}</p>
             <p><strong>Amount:</strong> ${amount.value}</p>
-            <h2>${total.toFixed(2)} ${curr.toUpperCase()}</h2>
+            <p><strong>Current Price:</strong> ${price.toFixed(2)} ${curr.toUpperCase()}</p>
+            <h2>Total : ${total.toFixed(2)} ${curr.toUpperCase()}</h2>
         `;
 
-    } catch (error) {
+    }
+    catch (error) {
 
         result.innerHTML = "<p style='color:red;'>Unable to fetch data. Please try again.</p>";
 
@@ -61,8 +63,11 @@ function saveFavorite() {
     let favoritePairs = JSON.parse(localStorage.getItem("favorites")) || [];
 
     if (!favoritePairs.includes(pair)) {
+
         favoritePairs.push(pair);
+
         localStorage.setItem("favorites", JSON.stringify(favoritePairs));
+
     }
 
     displayFavorites();
@@ -76,21 +81,27 @@ function displayFavorites() {
     let favoritePairs = JSON.parse(localStorage.getItem("favorites")) || [];
 
     if (favoritePairs.length === 0) {
+
         favorites.innerHTML = "<li>No favorite pairs added.</li>";
         return;
+
     }
 
-    favoritePairs.forEach(function(pair) {
+    favoritePairs.forEach(function(pair){
 
         const li = document.createElement("li");
+
         li.textContent = pair;
+
         favorites.appendChild(li);
 
     });
 
 }
 
-function logout() {
+function logout(){
+
+    localStorage.removeItem("favorites");
 
     window.location.href = "index.html";
 
