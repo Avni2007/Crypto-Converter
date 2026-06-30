@@ -8,68 +8,52 @@
 </head>
 <body>
 
-<div class="dashboard">
+    <div class="dashboard">
 
-    <div class="top-bar">
         <button id="logoutBtn">Logout</button>
-    </div>
 
-    <div class="header">
         <h1>Crypto Converter</h1>
-        <p>Convert cryptocurrency into your preferred currency using live CoinGecko data.</p>
-    </div>
 
-    <div class="form-group">
         <label for="amount">Amount</label>
         <input
             type="number"
             id="amount"
             placeholder="Enter Amount"
-            min="1"
         >
-    </div>
 
-    <div class="form-group">
-        <label for="crypto">Select Cryptocurrency</label>
+        <label for="crypto">Cryptocurrency</label>
         <select id="crypto">
-            <option value="bitcoin">Bitcoin (BTC)</option>
-            <option value="ethereum">Ethereum (ETH)</option>
-            <option value="dogecoin">Dogecoin (DOGE)</option>
-            <option value="litecoin">Litecoin (LTC)</option>
-            <option value="solana">Solana (SOL)</option>
+            <option value="bitcoin">Bitcoin</option>
+            <option value="ethereum">Ethereum</option>
+            <option value="dogecoin">Dogecoin</option>
+            <option value="litecoin">Litecoin</option>
+            <option value="solana">Solana</option>
         </select>
-    </div>
 
-    <div class="form-group">
-        <label for="currency">Select Currency</label>
+        <label for="currency">Currency</label>
         <select id="currency">
-            <option value="usd">US Dollar (USD)</option>
-            <option value="inr">Indian Rupee (INR)</option>
-            <option value="eur">Euro (EUR)</option>
-            <option value="gbp">British Pound (GBP)</option>
-            <option value="jpy">Japanese Yen (JPY)</option>
+            <option value="usd">USD</option>
+            <option value="inr">INR</option>
+            <option value="eur">EUR</option>
+            <option value="gbp">GBP</option>
         </select>
-    </div>
 
-    <button id="convertBtn">Convert</button>
+        <button id="convertBtn">Convert</button>
 
-    <div id="result">
-        <h3>Conversion Result</h3>
-        <p>Enter an amount and click <strong>Convert</strong>.</p>
-    </div>
+        <div id="result">
+            <p>Conversion result will appear here.</p>
+        </div>
 
-    <button id="saveBtn"> Save Favorite Pair</button>
+        <button id="saveBtn">Save Favorite Pair</button>
 
-    <div class="favorites-section">
         <h2>Favorite Pairs</h2>
+
         <ul id="favorites">
-            <li>No favorite pairs added.</li>
         </ul>
+
     </div>
 
-</div>
-
-<script src="dashboard.js"></script>
+    <script src="dashboard.js"></script>
 
 </body>
 </html>
