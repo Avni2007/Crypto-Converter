@@ -3,18 +3,20 @@ const crypto = document.getElementById("crypto");
 const currency = document.getElementById("currency");
 const convertBtn = document.getElementById("convertBtn");
 const saveBtn = document.getElementById("saveBtn");
+const logoutBtn = document.getElementById("logoutBtn");
 const result = document.getElementById("result");
 const favorites = document.getElementById("favorites");
 
 convertBtn.addEventListener("click", getPrice);
 saveBtn.addEventListener("click", saveFavorite);
+logoutBtn.addEventListener("click", logout);
 
 displayFavorites();
 
 async function getPrice() {
 
-    if (amount.value === "") {
-        result.innerHTML = "Please enter an amount.";
+    if (amount.value === "" || amount.value <= 0) {
+        result.innerHTML = "<p style='color:red;'>Please enter a valid amount.</p>";
         return;
     }
 
@@ -26,20 +28,27 @@ async function getPrice() {
     try {
 
         const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("API Error");
+        }
+
         const data = await response.json();
 
         const price = data[coin][curr];
-        const total = amount.value * price;
+        const total = Number(amount.value) * price;
 
         result.innerHTML = `
             <h3>Conversion Result</h3>
-            <p>${amount.value} ${coin}</p>
-            <p>= ${total.toFixed(2)} ${curr.toUpperCase()}</p>
+            <p><strong>Crypto:</strong> ${coin.toUpperCase()}</p>
+            <p><strong>Currency:</strong> ${curr.toUpperCase()}</p>
+            <p><strong>Amount:</strong> ${amount.value}</p>
+            <h2>${total.toFixed(2)} ${curr.toUpperCase()}</h2>
         `;
 
     } catch (error) {
 
-        result.innerHTML = "Unable to fetch data.";
+        result.innerHTML = "<p style='color:red;'>Unable to fetch data. Please try again.</p>";
 
     }
 
@@ -66,6 +75,11 @@ function displayFavorites() {
 
     let favoritePairs = JSON.parse(localStorage.getItem("favorites")) || [];
 
+    if (favoritePairs.length === 0) {
+        favorites.innerHTML = "<li>No favorite pairs added.</li>";
+        return;
+    }
+
     favoritePairs.forEach(function(pair) {
 
         const li = document.createElement("li");
@@ -73,5 +87,11 @@ function displayFavorites() {
         favorites.appendChild(li);
 
     });
+
+}
+
+function logout() {
+
+    window.location.href = "index.html";
 
 }
