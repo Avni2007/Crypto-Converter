@@ -5,24 +5,20 @@ loginForm.addEventListener("submit", async function(event){
 
     event.preventDefault();
 
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
     try{
 
         const response = await fetch("users.json");
         const users = await response.json();
 
-        let validUser = false;
+        const validUser = users.find(function(user){
 
-        for(let i = 0; i < users.length; i++){
+            return user.username === username &&
+                   user.password === password;
 
-            if(users[i].username === username && users[i].password === password){
-                validUser = true;
-                break;
-            }
-
-        }
+        });
 
         if(validUser){
 
